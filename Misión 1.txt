@@ -1,0 +1,55 @@
+Misión 1:
+if resto == 11:
+    esperado = "0"
+elif resto == 10:
+    esperado = "K"
+
+Misión 2:
+
+def calcular_envio(total, region):
+    """Devuelve el costo de envío en pesos chilenos.
+
+    Reglas acordadas con el área comercial:
+      - Compras de $50.000 o más: envío gratis ($0), a cualquier región.
+      - Compras menores a $50.000 en la Región Metropolitana ("RM"): $3.990.
+      - Compras menores a $50.000 en cualquier otra región: $6.990.
+      - La región puede venir escrita en mayúsculas o minúsculas.
+    """
+    if total >= 50000:
+        return 0
+    if region.upper() == "RM":
+        return 3990
+    return 6990
+
+Misión 3:
+
+Test_descuentos.py
+def test_5_unidades_tienen_10_por_ciento():
+    assert descuento_por_cantidad(5) == 10
+
+def test_10_unidades_tienen_20_por_ciento():
+    assert descuento_por_cantidad(10) == 20
+
+def test_cantidad_cero_lanza_error():
+    with pytest.raises(ValueError):
+        descuento_por_cantidad(0)
+
+def test_cantidad_negativa_lanza_error():
+    with pytest.raises(ValueError):
+        descuento_por_cantidad(-3)
+
+Correcciones Tienda Descuento:
+
+def descuento_por_cantidad(cantidad):
+    """Devuelve el porcentaje de descuento (0, 10 o 20) según la cantidad comprada."""
+    if cantidad <= 0:
+        raise ValueError("La cantidad debe ser mayor que cero")
+    if cantidad < 5:
+        return 0
+    elif cantidad < 10:
+        return 10
+    else:
+        return 20
+
+
+
